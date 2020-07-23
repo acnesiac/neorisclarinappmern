@@ -4,12 +4,12 @@ const PgnovasAPI = require('../controller/pgnovas');
 const asyncApiCall = async () => {
     return await PgnovasAPI.getNolaborables('2016', 'opcional');
 }
-module.exports = {
+exports.getDiaFeriados = (req,res,next)=>{
 
-    getDiaFeriados: async (req,res) =>  {
-        const diasFeriados = await DiaFeriado.find();
-        if(diasFeriados.length > 0 ){
-            res.json(diasFeriados);
+    const diasFeriados = DiaFeriado.find().exec().then(dias => {
+        console.log(dias.length);
+        if(dias.length > 0 ){
+            res.json(dias);
         }else{
             asyncApiCall().
             then(response => {
@@ -23,7 +23,8 @@ module.exports = {
                 res.json(response.data);
             });
         }
-    }
+    });
+
 
 
 }
