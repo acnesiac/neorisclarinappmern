@@ -15,7 +15,7 @@ exports.getDiaFeriados = (req,res,next)=>{
             then(response => {
                 response.data.forEach(
                     (dia)=> {
-                        let newDia = {title : dia.id, description: dia.id}
+                        let newDia = { motivo: dia.motivo, tipo : dia.tipo, dia: dia.dia, mes: dia.mes , id : dia.id }
                         const task = new DiaFeriado(newDia);
                         task.save();
                     }
