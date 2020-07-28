@@ -1,3 +1,12 @@
-# MERN STACK
-this is a CRUD app example write with React, Node, Expres and Mongodb, minor changes
+# Neoris Clarin MERN app
+Para lanzar la applicacion correr los comandos:
+
+	npm install
+	docker-compose up 
+
+Abrir chrome en:
+	http://localhost:80/
+
+
+
 

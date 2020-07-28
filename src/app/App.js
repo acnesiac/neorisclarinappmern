@@ -29,7 +29,7 @@ class App extends React.Component {
     addDia(e) {
         e.preventDefault();
         if (this.state._id) {
-            fetch(`http://localhost:3000/api/feriados/${this.state._id}`, {
+            fetch(`http://localhost:80/api/feriados/${this.state._id}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     title: this.state.title,
@@ -46,7 +46,7 @@ class App extends React.Component {
                     this.fetchTasks();
                 });
         } else {
-            fetch('http://localhost:3000/api/feriados', {
+            fetch('http://localhost:80/api/feriados', {
                 method: 'POST',
                 body: JSON.stringify(this.state),
                 headers: {
@@ -67,7 +67,7 @@ class App extends React.Component {
     }
 
     edit(id) {
-        fetch(`http://localhost:3000/api/feriados/${id}`)
+        fetch(`http://localhost:80/api/feriados/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -84,7 +84,7 @@ class App extends React.Component {
     }
 
     fetchTasks() {
-        fetch('http://localhost:3000/api/feriados')
+        fetch('http://localhost:80/api/feriados')
             .then(res => res.json())
             .then(data => {
                 this.setState({tasks: data});
