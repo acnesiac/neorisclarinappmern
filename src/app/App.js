@@ -95,8 +95,8 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-light bg-light">
-                    <span className="navbar-brand mb-0 h1">Feriados</span>
+                <nav className="navbar-left  navbar navbar-light bg-light">
+                    <span className="ml-auto navbar-brand mb-0 h1">Feriados</span>
                 </nav>
                 <div className="container" style={{padding: '10px'}}>
 
