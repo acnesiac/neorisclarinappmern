@@ -95,55 +95,60 @@ class App extends React.Component {
     render() {
         return (
             <div>
-
                 <nav className="navbar navbar-light bg-light">
                     <span className="navbar-brand mb-0 h1">Feriados</span>
                 </nav>
+                <div className="container" style={{padding: '10px'}}>
 
-                <div className="container">
-                    <div className="row">
-                        <div className="col-4">
-                            <div className="card">
-                                <div className="card-body">
-                                    <form onSubmit={this.addDia}>
-                                        <div className="form-group row">
-                                            <label htmlFor="staticEmail"
-                                                   className="col-sm-3 col-form-label">Tipo</label>
-                                            <div className="col-sm-7">
-                                                <input name="motivo" onChange={this.handleChange}
-                                                       value={this.state.motivo} type="text"
-                                                       placeholder="Motivo"/>
+                    <div className="row col-12">
+                        <div className="row">
+                            <div className="col-12">
+                                <div className="card">
+                                    <div className="card-body">
+                                        <form onSubmit={this.addDia} className="form-inline">
+                                            <div className="form-group row">
+                                                <div className="form-group mb-2">
+                                                    <label htmlFor="staticEmail"
+                                                           className="col-sm-3 col-form-label">Motivo</label>
+
+                                                    <input name="motivo" onChange={this.handleChange}
+                                                           value={this.state.motivo} type="text"
+                                                           placeholder="Motivo"
+
+                                                    />
+                                                </div>
+                                                <div className="form-group mb-2">
+                                                    <label htmlFor="staticEmail"
+                                                           className="col-sm-3 col-form-label">Tipo</label>
+
+                                                    <input name="tipo" onChange={this.handleChange}
+                                                           value={this.state.tipo}
+                                                           cols="60"
+                                                           rows="10" placeholder="Tipo"></input>
+                                                </div>
+                                                <div className="form-group mb-2" style={{padding: '15px'}}>
+                                                    <button type="submit" className="btn btn-secondary">
+                                                        Enviar
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="form-group row">
-                                            <label htmlFor="staticEmail"
-                                                   className="col-sm-3 col-form-label">Motivo</label>
-                                            <div className="col-sm-7">
-                                                <input name="tipo" onChange={this.handleChange} value={this.state.tipo}
-                                                       cols="30"
-                                                       rows="10" placeholder="Tipo"></input>
-                                            </div>
-                                        </div>
 
 
-                                        <button type="submit" className="btn btn-secondary">
-                                            Enviar
-                                        </button>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="col-8">
-                            <div className="card">
-                                <div className="card-body">
-                                    <table>
+                            <div className="col-12">
+                                <div className="card-body" style={{padding: '15px'}}>
+                                    <table className="col-12">
                                         <thead>
                                         <tr>
                                             <th>Motivo</th>
                                             <th>Tipo</th>
                                             <th>Dia</th>
                                             <th>Mes</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -160,7 +165,7 @@ class App extends React.Component {
                                                         <td>
                                                             <button onClick={() => this.edit(dia.id)}
                                                                     className="btn btn-success"
-                                                                    style={{margin: '4px'}}>
+                                                            >
                                                                 <i className="material-icons">editar</i>
                                                             </button>
                                                         </td>
