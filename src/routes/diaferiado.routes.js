@@ -26,7 +26,10 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     const {title, description} = req.body;
     const newDiaFeriado = {title, description};
-    await DiaFeriado.findByIdAndUpdate(req.params.id, newDiaFeriado);
+
+    const dia = await DiaFeriado.find({id : req.params.id});
+    await DiaFeriado.findByIdAndUpdate(dia._id, newDiaFeriado);
+
     res.json({status: 'DiaFeriado Actualizado'});
 });
 
